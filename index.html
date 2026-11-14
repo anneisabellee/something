@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Feliz Aniversário</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            roseSoft: '#FFF5F5',
+            roseBlush: '#FCE7E7',
+            wineDeep: '#4A0E17',
+            wineAccent: '#722F37',
+            goldSoft: '#D4AF37',
+            parchment: '#FDFBF7'
+          },
+          fontFamily: {
+            script: ['"Great Vibes"', 'cursive'],
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['"Inter"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sans min-h-screen relative selection:bg-rose-200 selection:text-wineDeep bg-roseSoft/30">
+
+  <!-- Interactive Petals Background Canvas -->
+  <canvas id="petals-canvas"></canvas>
+
+  <!-- Floating Audio & Love Ambient Trigger -->
+  <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+    <button id="musicToggleBtn" onclick="toggleBgm()" class="bg-wineAccent hover:bg-wineDeep text-white px-4 py-3 rounded-full shadow-lg flex items-center gap-2 text-sm font-medium transition transform active:scale-95 border border-amber-200/40">
+      <i data-lucide="music" class="w-4 h-4 animate-spin text-amber-200" id="musicIcon"></i>
+      <span id="musicBtnLabel">Música para você</span>
+    </button>
+  </div>
+
+  <!-- Navigation / Romantic Header -->
+  <nav class="sticky top-0 z-40 bg-white/70 backdrop-blur-md border-b border-pink-100 py-3 px-6 shadow-sm">
+    <div class="max-w-5xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <i data-lucide="heart" class="w-5 h-5 text-red-500 fill-red-500 animate-pulse"></i>
+        <span class="font-serif font-bold text-wineDeep text-lg tracking-wide">PARABÉNS MEU AMOR!</span>
+      </div>
+      <div class="flex items-center space-x-4 text-xs sm:text-sm font-medium text-wineAccent">
+        <a href="#momentos" class="hover:text-red-600 transition">Momentos</a>
+        <a href="#motivos" class="hover:text-red-600 transition">Motivos</a>
+        <a href="#carta" class="hover:text-red-600 transition">Carta</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="relative pt-20 pb-28 px-4 text-center max-w-4xl mx-auto">
+    <div class="inline-block px-4 py-1.5 mb-6 rounded-full bg-pink-100/80 text-wineAccent text-xs uppercase tracking-widest font-semibold border border-pink-200">
+      Especialmente para o amor da minha vida ✨
+    </div>
+    <h1 class="text-5xl sm:text-7xl font-script text-wineDeep mb-4 tracking-normal drop-shadow-sm">
+      Eu te Amo, Ademir!
+      <br>
+      <br>
+      <br>
+      Feliz Aniversário!
+    </h1>
+    <p class="font-serif text-xl sm:text-2xl text-wineAccent italic max-w-2xl mx-auto leading-relaxed mb-8">
+      "Os melhores momentos da minha vida são os que eu estou com você"
+    </p>
+
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      <a href="#carta" class="bg-white/90 text-wineAccent border border-pink-200 hover:bg-pink-50 px-7 py-3 rounded-full font-medium shadow-sm transition-all flex items-center gap-2">
+        <i data-lucide="mail-open" class="w-4 h-4"></i> Abrir Cartinha
+      </a>
+    </div>
+  </header>
+
+  <!-- SECTION: NOSSA TIMELINE -->
+  <section id="momentos" class="py-20 px-4 max-w-4xl mx-auto">
+    <div class="text-center mb-14">
+      <span class="text-xs font-semibold uppercase tracking-widest text-wineAccent block mb-1">Capítulos Inesquecíveis</span>
+      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-wineDeep">Nossa Linha do Tempo</h2>
+      <div class="w-16 h-1 bg-red-300 mx-auto mt-3 rounded-full"></div>
+    </div>
+
+    <div class="relative border-l-2 border-pink-300 ml-4 sm:ml-32 space-y-10">
+      
+      <!-- Evento 1 -->
+      <div class="relative pl-8 group">
+        <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-white border-2 border-wineAccent flex items-center justify-center text-wineAccent group-hover:scale-110 transition">
+          <i data-lucide="sparkles" class="w-4 h-4"></i>
+        </div>
+        <div class="bg-white/80 p-6 rounded-2xl shadow-sm border border-pink-100 hover:shadow-md transition">
+          <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">O Começo de Tudo</span>
+          <h3 class="text-xl font-serif font-bold text-wineDeep mt-1">Na pandemia quando eu recebia suas mensagens</h3>
+          <p class="text-sm text-stone-600 mt-2 leading-relaxed">
+            Eu gostava muito de conversar com contigo porque você sempre foi esse menino engraçado e simpático. Então, eu costumava pensar muito em você. 
+          </p>
+        </div>
+      </div>
+
+      <!-- Evento 2 -->
+      <div class="relative pl-8 group">
+        <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-white border-2 border-wineAccent flex items-center justify-center text-wineAccent group-hover:scale-110 transition">
+          <i data-lucide="heart" class="w-4 h-4 text-red-500 fill-red-500"></i>
+        </div>
+        <div class="bg-white/80 p-6 rounded-2xl shadow-sm border border-pink-100 hover:shadow-md transition">
+          <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">nós no 1° Informática</span>
+          <h3 class="text-xl font-serif font-bold text-wineDeep mt-1">Nossa amizade</h3>
+          <p class="text-sm text-stone-600 mt-2 leading-relaxed">
+            Você demonstrou que além de engraçado e simpático, era alguém que eu podia confiar. Obrigada por ser sempre paciente e compreensivo nas nossas conversas.
+          </p>
+        </div>
+      </div>
+
+      <!-- Evento 3 -->
+      <div class="relative pl-8 group">
+        <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-white border-2 border-wineAccent flex items-center justify-center text-wineAccent group-hover:scale-110 transition">
+          <i data-lucide="map-pin" class="w-4 h-4 text-emerald-600"></i>
+        </div>
+        <div class="bg-white/80 p-6 rounded-2xl shadow-sm border border-pink-100 hover:shadow-md transition">
+          <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Quando você me reconquistou rs</span>
+          <h3 class="text-xl font-serif font-bold text-wineDeep mt-1">Me apaixonei por você</h3>
+          <p class="text-sm text-stone-600 mt-2 leading-relaxed">
+            Você com o seu jeitinho fofo sempre foi um cavalheiro que costumava me ajudar e fazer eu me sentir bem. Obrigada por cuidar de mim até nos mínimos detalhes.
+          </p>
+        </div>
+      </div>
+
+      <!-- Evento 4 -->
+      <div class="relative pl-8 group">
+        <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-white border-2 border-wineAccent flex items-center justify-center text-wineAccent group-hover:scale-110 transition">
+          <i data-lucide="gem" class="w-4 h-4 text-amber-500"></i>
+        </div>
+        <div class="bg-white/80 p-6 rounded-2xl shadow-sm border border-pink-100 hover:shadow-md transition">
+          <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Oficial</span>
+          <h3 class="text-xl font-serif font-bold text-wineDeep mt-1">O Pedido de Namoro</h3>
+          <p class="text-sm text-stone-600 mt-2 leading-relaxed">
+            Tô esperando até agoraKKKKKKKKKKKKKKKKKKK (brincadeira, sem pressa né?)
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION: POTE DOS MOTIVOS PARA TE AMAR -->
+  <section id="motivos" class="py-16 px-4 bg-roseSoft border-t border-pink-100">
+    <div class="max-w-2xl mx-auto text-center">
+      <div class="w-16 h-16 mx-auto bg-pink-200/70 rounded-full flex items-center justify-center text-wineAccent mb-4 shadow-inner">
+        <i data-lucide="gift" class="w-8 h-8"></i>
+      </div>
+      <h2 class="text-3xl font-serif font-bold text-wineDeep">Pote de Motivos para Te Amar</h2>
+      <p class="text-sm text-wineAccent mt-2 mb-8">
+        São milhares de detalhes, mas tire um bilhetinho sempre que quiser lembrar o quanto você é especial:
+      </p>
+
+      <!-- Cartão do Bilhetinho -->
+      <div class="bg-white p-8 rounded-3xl shadow-md border border-pink-200 relative min-h-[160px] flex flex-col justify-center items-center">
+        <i data-lucide="quote" class="w-8 h-8 text-pink-200 absolute top-4 left-6"></i>
+        <p id="motivoText" class="font-serif italic text-lg sm:text-xl text-wineDeep transition-all duration-300 max-w-lg">
+          "Clique no botão abaixo para tirar um bilhete com um motivo especial..."
+        </p>
+      </div>
+
+      <div class="mt-6 flex justify-center gap-3">
+        <button onclick="tirarMotivo()" class="bg-wineAccent hover:bg-wineDeep text-white px-6 py-3 rounded-full font-medium shadow-md transition transform active:scale-95 flex items-center gap-2">
+          <i data-lucide="shuffle" class="w-4 h-4"></i> Tirar Outro Motivo
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: CARTA DE AMOR NO ENVELOPE -->
+  <section id="carta" class="py-20 px-4 bg-roseSoft/70 border-t border-pink-100">
+    <div class="max-w-2xl mx-auto text-center mb-10">
+      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-wineDeep">Uma Carta de Coração</h2>
+      <p class="text-sm text-wineAccent mt-2">Toque no envelope para ler o que escrevi para você</p>
+    </div>
+
+    <!-- Envelope Interativo -->
+    <div class="max-w-md mx-auto">
+      <div id="envelopeContainer" class="envelope-wrapper relative cursor-pointer" onclick="toggleLetter()">
+        
+        <!-- Fundo do Envelope -->
+        <div class="relative bg-rose-200/90 w-full h-64 rounded-xl shadow-xl flex items-center justify-center border border-pink-300 overflow-hidden">
+          
+          <!-- Aba Superior -->
+          <div id="envelopeFlap" class="envelope-flap absolute top-0 left-0 w-0 h-0 border-l-[190px] sm:border-l-[224px] border-l-transparent border-r-[190px] sm:border-r-[224px] border-r-transparent border-t-[140px] border-t-rose-300 transition-transform duration-500 origin-top"></div>
+
+          <!-- Selo de Cera -->
+          <div id="sealIcon" class="z-30 w-12 h-12 bg-wineDeep rounded-full flex items-center justify-center text-amber-200 shadow-md">
+            <i data-lucide="heart" class="w-6 h-6 fill-amber-200"></i>
+          </div>
+
+          <p class="absolute bottom-4 text-xs font-semibold text-wineDeep uppercase tracking-widest z-10">
+            Clique para Abrir
+          </p>
+        </div>
+
+        <!-- Papel da Carta Revelado -->
+        <div id="letterPaper" class="letter-paper hidden bg-parchment p-8 rounded-2xl shadow-xl border border-amber-200/70 text-left mt-6">
+          <div class="flex justify-between items-center border-b border-pink-200 pb-3 mb-4">
+            <span class="font-script text-3xl text-wineDeep">Meu Amor, Ademir</span>
+            <span class="text-xs text-stone-400" id="letterDate">Hoje & Sempre</span>
+          </div>
+          
+          <div class="space-y-4 font-serif text-sm sm:text-base text-stone-700 leading-relaxed">
+            <p>
+              Hoje é um dia muito especial, porque é o dia em que o amor da minha vida nasceu. Ademir, Deus caprichou em criar você que é um menino muito incrível que tem muito amor no coração e que tem muita sabedoria porque busca evoluir todos os dias.
+            </p>
+            <p>
+              Continue sendo esse garoto que possui uma grande fé e pureza no coração, foque nos seus objetivos e não deixe de se esforçar para conseguir realizá-los. Eu vou estar aqui pra gente caminhar juntos e te apoiar quando o caminho estiver difícil.
+            </p>
+            <p>
+              Espero que todos os seus sonhos se realizem, Deus te abençoe e te dê muita saúde, paz e felicidades para que você se torne um homem ainda mais incrível futuramente.
+            </p>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-pink-200 text-right">
+            <p class="font-serif italic text-sm text-wineAccent">Com todo o meu amor e carinho,</p>
+            <p class="font-script text-3xl text-wineDeep mt-1">Para sempre sua Belle❤️</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: PLAYLIST NOSSAS MÚSICAS -->
+  <section class="py-20 px-4 max-w-xl mx-auto">
+    <div class="bg-stone-900 text-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-stone-800">
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-black">
+            <i data-lucide="disc" class="w-6 h-6 animate-spin"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-sm tracking-wide">Nossa Trilha Sonora</h3>
+            <span class="text-xs text-stone-400">Tocando no coração</span>
+          </div>
+        </div>
+        <i data-lucide="heart" class="w-5 h-5 text-red-500 fill-red-500"></i>
+      </div>
+
+      <div class="bg-stone-800/80 p-4 rounded-2xl flex items-center gap-4 mb-5">
+        <div class="w-16 h-16 bg-gradient-to-tr from-pink-500 to-rose-400 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+          <i data-lucide="music-2" class="w-8 h-8 text-white"></i>
+        </div>
+        <div class="flex-1 overflow-hidden">
+          <p id="currentTrackTitle" class="font-bold text-sm truncate">Velha Infância</p>
+          <p id="currentTrackArtist" class="text-xs text-stone-400 truncate">Tribalistas</p>
+        </div>
+      </div>
+
+      <div class="space-y-1 mb-5">
+        <div class="w-full bg-stone-700 h-1.5 rounded-full overflow-hidden cursor-pointer" onclick="seekSong(event)">
+          <div id="songProgressBar" class="bg-green-500 h-full w-2/5 transition-all duration-300"></div>
+        </div>
+        <div class="flex justify-between text-[11px] text-stone-400">
+          <span id="currentTimeLabel">1:15</span>
+          <span>3:30</span>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center gap-6">
+        <button onclick="prevSong()" class="text-stone-400 hover:text-white transition">
+          <i data-lucide="skip-back" class="w-5 h-5"></i>
+        </button>
+        <button id="playerPlayBtn" onclick="toggleSimulatedPlay()" class="w-12 h-12 bg-white text-stone-900 rounded-full flex items-center justify-center hover:scale-105 transition shadow-lg">
+          <i data-lucide="play" class="w-5 h-5 fill-current ml-0.5" id="playIcon"></i>
+        </button>
+        <button onclick="nextSong()" class="text-stone-400 hover:text-white transition">
+          <i data-lucide="skip-forward" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: SURPRESA FINAL (CHUVA DE CORAÇÕES) -->
+  <section class="py-20 px-4 text-center">
+    <div class="max-w-lg mx-auto bg-gradient-to-b from-white to-pink-50/80 p-8 rounded-3xl border border-pink-200 shadow-md">
+      <h3 class="text-2xl font-serif font-bold text-wineDeep mb-2">Quer uma surpresa final?</h3>
+      <p class="text-sm text-stone-600 mb-6">Aperte aqui:</p>
+      
+      <button onclick="dispararSurpresa()" class="bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white font-semibold px-8 py-4 rounded-full shadow-lg transform active:scale-95 transition-all flex items-center gap-3 mx-auto">
+        <i data-lucide="heart" class="w-5 h-5 fill-white"></i>
+        <span>Explosão de Amor</span>
+      </button>
+
+      <div id="finalMessage" class="hidden mt-6 pt-6 border-t border-pink-100">
+        <h4 class="font-script text-4xl text-wineDeep animate-bounce">Feliz Aniversário!</h4>
+        <p class="text-sm text-wineAccent mt-1">Obrigada por ser o melhor companheiro do mundo ❤️</p>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="py-8 text-center text-xs border-t border-pink-100">
+    <p>Feito com todo carinho & amor do mundo ✨</p>
+  </footer>
+
+ 
+  <script>
+    
+    lucide.createIcons();
+
+    /* ========================================================
+       1. CONTADOR 
+       ======================================================== */
+    let startDate = new Date(localStorage.getItem('romanticStartDate') || '2023-06-12T00:00:00');
+    const picker = document.getElementById('startDatePicker');
+    if (picker) {
+      picker.value = startDate.toISOString().split('T')[0];
+    }
+
+    function atualizarContador() {
+      const daysEl = document.getElementById('days');
+      if (!daysEl) return; 
+
+      const now = new Date();
+      const diff = now - startDate;
+
+      if (diff < 0) {
+        document.getElementById('days').innerText = '00';
+        document.getElementById('hours').innerText = '00';
+        document.getElementById('minutes').innerText = '00';
+        document.getElementById('seconds').innerText = '00';
+        return;
+      }
+
+      const sec = Math.floor(diff / 1000);
+      const min = Math.floor(sec / 60);
+      const hrs = Math.floor(min / 60);
+      const days = Math.floor(hrs / 24);
+
+      document.getElementById('days').innerText = String(days).padStart(2, '0');
+      document.getElementById('hours').innerText = String(hrs % 24).padStart(2, '0');
+      document.getElementById('minutes').innerText = String(min % 60).padStart(2, '0');
+      document.getElementById('seconds').innerText = String(sec % 60).padStart(2, '0');
+    }
+    setInterval(atualizarContador, 1000);
+    atualizarContador();
+
+    /* ========================================================
+       2. POTE DE MOTIVOS PARA TE AMAR
+       ======================================================== */
+    const motivos = [
+      "O jeito doce como você sorri quando a gente tá junto.",
+      "A forma carinhosa como você me apoia em cada sonho.",
+      "O seu abraço que faz qualquer dia cansativo parecer leve.",
+      "Porque você escuta pacientemente todas as minhas conversas bobas.",
+      "Seu cheirinho que fica na minha farda ou no meu cabelo.",
+      "O seu Boa noite gigante com muito amor e carinho que voce me dá todas noites.",
+      "O brilho nos seus olhos quando a gente tá pertinho um do outro.",
+      "A paz que sinto apenas por estar perto de você em silêncio.",
+      "O modo como a gente ri de piadas que só nós dois entendemos.",
+      "Seu coração generoso e a bondade que você tem com todos.",
+      "Porque segurar sua mão me dá a maior sensação de segurança.",
+      "A sua risada contagiante que ilumina todo o lugar.",
+      "Porque você me incentiva a ser uma pessoa melhor todos os dias.",
+      "O cuidado de mandar mensagem desejando que eu chegue bem em casa.",
+      "A forma como você faz carinho no meu corpo enquanto me beija.",
+      "Porque a vida é infinitamente mais colorida com você do lado.",
+      "O jeito que você me abraça de surpresa por trás.",
+      "Porque você é o meu melhor amigo.",
+      "O carinho no cabelo quando estamos 'estudando' juntos.",
+      "Por sonhar comigo e planejar nosso futuro juntinhos.",
+      "Simplesmente por ser exatamente quem você é, único e incrível."
+    ];
+
+    function tirarMotivo() {
+      const idx = Math.floor(Math.random() * motivos.length);
+      const el = document.getElementById('motivoText');
+      el.style.opacity = 0;
+      setTimeout(() => {
+        el.innerText = `"${motivos[idx]}"`;
+        el.style.opacity = 1;
+      }, 200);
+    }
+
+    /* ========================================================
+       3. CARTA DE AMOR NO ENVELOPE
+       ======================================================== */
+    let envelopeOpen = false;
+    function toggleLetter() {
+      const flap = document.getElementById('envelopeFlap');
+      const letter = document.getElementById('letterPaper');
+      envelopeOpen = !envelopeOpen;
+
+      if (envelopeOpen) {
+        flap.style.transform = 'rotateX(180deg)';
+        setTimeout(() => {
+          letter.classList.remove('hidden');
+          letter.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 300);
+      } else {
+        letter.classList.add('hidden');
+        flap.style.transform = 'rotateX(0deg)';
+      }
+    }
+
+/* ========================================================
+       4 & 5. PLAYER DE MÚSICA E BOTÃO FLUTUANTE SINCRONIZADOS
+       ======================================================== */
+    const tracks = [
+      { title: "Velha Infância", artist: "Tribalistas", src: "assets/velha-infancia.mp3" },
+      { title: "So High School", artist: "Taylor Swift", src: "assets/so-high-school.mp3" },
+      { title: "LOVE.", artist: "Kendrick Lamar, Zacari", src: "assets/love.mp3" }
+    ];
+
+    let currentTrackIdx = 0;
+    let isPlaying = false;
+    const audioPlayer = new Audio();
+    audioPlayer.src = tracks[currentTrackIdx].src;
+
+    function formatTime(seconds) {
+      if (isNaN(seconds)) return "0:00";
+      const min = Math.floor(seconds / 60);
+      const sec = Math.floor(seconds % 60);
+      return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+    }
+
+
+    function updateMusicUI() {
+      const playIcon = document.getElementById('playIcon');
+      const bgmLabel = document.getElementById('musicBtnLabel');
+
+      if (isPlaying) {
+        playIcon.setAttribute('data-lucide', 'pause');
+        bgmLabel.innerText = `Tocando: ${tracks[currentTrackIdx].title}`;
+      } else {
+        playIcon.setAttribute('data-lucide', 'play');
+        bgmLabel.innerText = "Música para você";
+      }
+      lucide.createIcons();
+    }
+
+    function renderTrack() {
+      const t = tracks[currentTrackIdx];
+      document.getElementById('currentTrackTitle').innerText = t.title;
+      document.getElementById('currentTrackArtist').innerText = t.artist;
+      audioPlayer.src = t.src;
+      if (isPlaying) {
+        audioPlayer.play();
+      }
+      updateMusicUI();
+    }
+
+    function toggleSimulatedPlay() {
+      if (!isPlaying) {
+        audioPlayer.play();
+        isPlaying = true;
+      } else {
+        audioPlayer.pause();
+        isPlaying = false;
+      }
+      updateMusicUI();
+    }
+
+    function toggleBgm() {
+      toggleSimulatedPlay();
+    }
+
+    function nextSong() {
+      currentTrackIdx = (currentTrackIdx + 1) % tracks.length;
+      renderTrack();
+    }
+
+    function prevSong() {
+      currentTrackIdx = (currentTrackIdx - 1 + tracks.length) % tracks.length;
+      renderTrack();
+    }
+
+    function seekSong(e) {
+      if (!audioPlayer.duration) return;
+      const rect = e.currentTarget.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const percent = clickX / rect.width;
+      audioPlayer.currentTime = percent * audioPlayer.duration;
+    }
+
+    audioPlayer.addEventListener('timeupdate', () => {
+      if (!audioPlayer.duration) return;
+      const percent = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+      document.getElementById('songProgressBar').style.width = percent + '%';
+      document.getElementById('currentTimeLabel').innerText = formatTime(audioPlayer.currentTime);
+      
+      const durationLabel = document.getElementById('currentTimeLabel').nextElementSibling;
+      if (durationLabel) {
+        durationLabel.innerText = formatTime(audioPlayer.duration);
+      }
+    });
+
+    audioPlayer.addEventListener('ended', nextSong);
+
+    /* ========================================================
+       6. SURPRESA FINAL (Confetes)
+       ======================================================== */
+    function dispararSurpresa() {
+      document.getElementById('finalMessage').classList.remove('hidden');
+
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#ff4d6d', '#ff758f', '#ffb3c1', '#c9184a']
+      });
+
+      setTimeout(() => {
+        confetti({
+          particleCount: 80,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 },
+          colors: ['#ff4d6d', '#f72585', '#d4af37']
+        });
+        confetti({
+          particleCount: 80,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 },
+          colors: ['#ff4d6d', '#f72585', '#d4af37']
+        });
+      }, 300);
+    }
+
+    /* ========================================================
+       7. CANVAS DE PÉTALAS / CORAÇÕES
+       ======================================================== */
+    const canvas = document.getElementById('petals-canvas');
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+
+    const particles = [];
+    for (let i = 0; i < 28; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        size: Math.random() * 8 + 8,
+        speedY: Math.random() * 0.9 + 0.5,
+        speedX: Math.random() * 0.6 - 0.3,
+        rotation: Math.random() * 360,
+        rotationSpeed: Math.random() * 1 - 0.5,
+        color: Math.random() > 0.4 ? 'rgba(255, 175, 189, 0.45)' : 'rgba(225, 112, 134, 0.3)'
+      });
+    }
+
+    function drawHeart(x, y, size, rotation, color) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate((rotation * Math.PI) / 180);
+      ctx.beginPath();
+      const topCurveHeight = size * 0.3;
+      ctx.moveTo(0, topCurveHeight);
+      ctx.bezierCurveTo(-size / 2, -topCurveHeight, -size, topCurveHeight / 3, 0, size);
+      ctx.bezierCurveTo(size, topCurveHeight / 3, size / 2, -topCurveHeight, 0, topCurveHeight);
+      ctx.fillStyle = color;
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function animatePetals() {
+      ctx.clearRect(0, 0, width, height);
+
+      particles.forEach(p => {
+        p.y += p.speedY;
+        p.x += p.speedX;
+        p.rotation += p.rotationSpeed;
+
+        if (p.y > height + 20) {
+          p.y = -20;
+          p.x = Math.random() * width;
+        }
+        if (p.x > width + 20) p.x = -20;
+        if (p.x < -20) p.x = width + 20;
+
+        drawHeart(p.x, p.y, p.size, p.rotation, p.color);
+      });
+
+      requestAnimationFrame(animatePetals);
+    }
+    animatePetals();
+  </script>
+ </body>
+</html>
